@@ -10,14 +10,26 @@ def convert_size(size_bytes):
    return "%s %s" % (s, size_name[i])
 
 from pytube import YouTube
-print('Enter a link : ')
-link = input()
-yt = YouTube(link)
+#print('Enter a link : ')
+#link = input()
+#yt = YouTube(link)
 
-print('Video Title : ', yt.title)
-stream = yt.streams.first()
-print("Stream selected : " , stream)
-print('Video Size : ', convert_size(stream.filesize))
+def showVideoName(link):
+    return YouTube(link).title
+def downloadFile(link):
+    yt = YouTube(link)
+    stream = yt.streams.first()
+    stream.download('~/Downloads')
+#def thumbnailUrl(link):
+#    yt = YouTube(link)
+#    return yt.thumbnail_url
+    
+    
+
+#print('Video Title : ', yt.title)
+#stream = yt.streams.first()
+#print("Stream selected : " , stream)
+#print('Video Size : ', convert_size(stream.filesize))
 
 
-stream.download()
+#stream.download()
